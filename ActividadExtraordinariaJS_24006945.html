@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego: Adivina si es Mayor o Menor</title>
+</head>
+<body>
+    <script>
+        alert("🎮 ¡Bienvenido al juego de adivinar si un número es mayor o menor!");
+
+        let numeroComputadora = Math.floor(Math.random() * 9) + 1;
+
+        let numeroUsuario;
+        do {
+            numeroUsuario = parseInt(prompt("🎮 Ingrese un número entre 3 y 6:"));
+            if (isNaN(numeroUsuario) || numeroUsuario < 3 || numeroUsuario > 6) {
+                alert("❌ Número inválido. Inténtelo nuevamente.");
+            }
+        } while (isNaN(numeroUsuario) || numeroUsuario < 3 || numeroUsuario > 6);
+
+        let resultado;
+        if (numeroUsuario > numeroComputadora) {
+            resultado = "mayor";
+        } else if (numeroUsuario < numeroComputadora) {
+            resultado = "menor";
+        } else {
+            resultado = "igual";
+        }
+
+        alert(`💻 La computadora eligió ${numeroComputadora}. Usted eligió ${numeroUsuario}. Su elección es ${resultado}.`);
+
+        let jugarNuevamente = confirm("🔄 ¿Desea jugar otra vez?");
+        if (jugarNuevamente) {
+            location.reload();
+        } else {
+            let nombre = prompt("🎭 Ingrese su nombre para despedirse:");
+            let carnet = prompt("📌 Ingrese su número de carnet:");
+            alert(`🎉 Gracias por jugar, ${nombre}. Su número de carnet es ${carnet}.`);
+        }
+    </script>
+</body>
+</html>

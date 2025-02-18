@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Signo Zodiacal</title>
+</head>
+<body>
+    <script>
+        alert("🔮 ¡Bienvenido/a! Descubre tu signo zodiacal ingresando tu fecha de nacimiento.");
+        
+        function obtenerSignoZodiacal(mes, dia) {
+            if ((mes == 1 && dia >= 20) || (mes == 2 && dia <= 18)) return "♒ Acuario";
+            else if ((mes == 2 && dia >= 19) || (mes == 3 && dia <= 20)) return "♓ Piscis";
+            else if ((mes == 3 && dia >= 21) || (mes == 4 && dia <= 19)) return "♈ Aries";
+            else if ((mes == 4 && dia >= 20) || (mes == 5 && dia <= 20)) return "♉ Tauro";
+            else if ((mes == 5 && dia >= 21) || (mes == 6 && dia <= 20)) return "♊ Géminis";
+            else if ((mes == 6 && dia >= 21) || (mes == 7 && dia <= 22)) return "♋ Cáncer";
+            else if ((mes == 7 && dia >= 23) || (mes == 8 && dia <= 22)) return "♌ Leo";
+            else if ((mes == 8 && dia >= 23) || (mes == 9 && dia <= 22)) return "♍ Virgo";
+            else if ((mes == 9 && dia >= 23) || (mes == 10 && dia <= 22)) return "♎ Libra";
+            else if ((mes == 10 && dia >= 23) || (mes == 11 && dia <= 21)) return "♏ Escorpio";
+            else if ((mes == 11 && dia >= 22) || (mes == 12 && dia <= 21)) return "♐ Sagitario";
+            else return "♑ Capricornio";
+        }
+
+        let mes, dia;
+
+        do {
+            mes = parseInt(prompt("📅 Ingrese su mes de nacimiento (1-12):"));
+            dia = parseInt(prompt("📅 Ingrese su día de nacimiento (1-31):"));
+
+            if (isNaN(mes) || isNaN(dia) || mes < 1 || mes > 12 || dia < 1 || dia > 31) {
+                alert("❌ Error: Ingrese valores válidos.");
+            }
+        } while (isNaN(mes) || isNaN(dia) || mes < 1 || mes > 12 || dia < 1 || dia > 31);
+
+        let signo = obtenerSignoZodiacal(mes, dia);
+        alert("🔮 Tu signo zodiacal es: " + signo + " 🔮");
+    </script>
+</body>
+</html>
